@@ -7,18 +7,30 @@ import leadRoutes from "./routes/leadRoutes.js";
 import visitRoutes from "./routes/visitRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import startReminderCron from "./utils/reminderCron.js";
+
 dotenv.config();
 
 const app = express();
-const cors = require("cors");
+
+// connect database
 connectDB();
+
+// start cron job
 startReminderCron();
+
+// middlewares
 app.use(cors());
 app.use(express.json());
 
+// routes
 app.use("/api/leads", leadRoutes);
 app.use("/api/visits", visitRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+
+// test route
+app.get("/", (req, res) => {
+  res.send("Gharpayy CRM API Running");
+});
 
 const PORT = process.env.PORT || 5000;
 
