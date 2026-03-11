@@ -10,7 +10,7 @@ import startReminderCron from "./utils/reminderCron.js";
 dotenv.config();
 
 const app = express();
-
+const cors = require("cors");
 connectDB();
 startReminderCron();
 app.use(cors());
