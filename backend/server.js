@@ -19,18 +19,14 @@ connectDB();
 startReminderCron();
 
 /* CORS FIX */
+// middlewares
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://gharpayy-avlr5sf9a-amit-code01s-projects.vercel.app",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    origin: "*",
+    methods: ["GET","POST","PUT","DELETE"],
+    allowedHeaders: ["Content-Type"]
   })
 );
-
-// middleware
 app.use(express.json());
 
 // routes
