@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://gharpayy-crm.onrender.com/api"
+  baseURL: "https://gharpayy-crm-rge4.onrender.com/api"
 });
 
 export const getDashboard = () => API.get("/dashboard");
