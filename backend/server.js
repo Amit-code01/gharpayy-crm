@@ -18,16 +18,19 @@ connectDB();
 // start cron job
 startReminderCron();
 
-// CORS configuration (IMPORTANT)
+/* CORS FIX */
 app.use(
   cors({
-    origin: "https://gharpayy-avlr5sf9a-amit-code01s-projects.vercel.app",
+    origin: [
+      "http://localhost:5173",
+      "https://gharpayy-avlr5sf9a-amit-code01s-projects.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
+    credentials: true,
   })
 );
 
-// middlewares
+// middleware
 app.use(express.json());
 
 // routes
